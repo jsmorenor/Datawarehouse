@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{5F3D40F3-33EF-4205-A0E9-B644D9BF4B62}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{3C1E8254-0A93-4B88-9E42-91D506727558}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -6675,7 +6675,7 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada].Columns[Year]"
-                      dataType="i4"
+                      dataType="i2"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada].Columns[Year]"
@@ -6686,18 +6686,18 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[YEAR](#{Package\MM_Time\Ordenar.Outputs[Salida de ordenación].Columns[OrderDate]})</property>
+                          name="Expression">(DT_I2)[YEAR](#{Package\MM_Time\Ordenar.Outputs[Salida de ordenación].Columns[OrderDate]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">YEAR(OrderDate)</property>
+                          name="FriendlyExpression">(DT_I2)YEAR(OrderDate)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada].Columns[Month]"
-                      dataType="i4"
+                      dataType="ui1"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada].Columns[Month]"
@@ -6708,18 +6708,18 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[MONTH](#{Package\MM_Time\Ordenar.Outputs[Salida de ordenación].Columns[OrderDate]})</property>
+                          name="Expression">(DT_UI1)[MONTH](#{Package\MM_Time\Ordenar.Outputs[Salida de ordenación].Columns[OrderDate]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">MONTH(OrderDate)</property>
+                          name="FriendlyExpression">(DT_UI1)MONTH(OrderDate)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
                       refId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada].Columns[Day]"
-                      dataType="i4"
+                      dataType="ui1"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada].Columns[Day]"
@@ -6730,13 +6730,13 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                           containsID="true"
                           dataType="System.String"
                           description="Expresión de columna derivada"
-                          name="Expression">[DAY](#{Package\MM_Time\Ordenar.Outputs[Salida de ordenación].Columns[OrderDate]})</property>
+                          name="Expression">(DT_UI1)[DAY](#{Package\MM_Time\Ordenar.Outputs[Salida de ordenación].Columns[OrderDate]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expresión descriptiva de columna derivada"
                           expressionType="Notify"
-                          name="FriendlyExpression">DAY(OrderDate)</property>
+                          name="FriendlyExpression">(DT_UI1)DAY(OrderDate)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -6760,132 +6760,6 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                       refId="Package\MM_Time\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\MM_Time\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\MM_Time\Conversión de datos"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
-              description="Conversión de datos"
-              name="Conversión de datos"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\MM_Time\Conversión de datos.Inputs[Entrada de conversión de datos]"
-                  name="Entrada de conversión de datos">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\MM_Time\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Year]"
-                      cachedDataType="i4"
-                      cachedName="Year"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Year]" />
-                    <inputColumn
-                      refId="Package\MM_Time\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Month]"
-                      cachedDataType="i4"
-                      cachedName="Month"
-                      lineageId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Month]" />
-                    <inputColumn
-                      refId="Package\MM_Time\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Day]"
-                      cachedDataType="i4"
-                      cachedName="Day"
-                      lineageId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Day]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos]"
-                  exclusionGroup="1"
-                  name="Salida de conversión de datos"
-                  synchronousInputId="Package\MM_Time\Conversión de datos.Inputs[Entrada de conversión de datos]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Year]"
-                      dataType="i2"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Year]"
-                      name="Copia de Year"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Year]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Month]"
-                      dataType="ui1"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Month]"
-                      name="Copia de Month"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Month]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Day]"
-                      dataType="ui1"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Day]"
-                      name="Copia de Day"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Day]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\MM_Time\Conversión de datos.Outputs[Salida de error de conversión de datos]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Salida de error de conversión de datos"
-                  synchronousInputId="Package\MM_Time\Conversión de datos.Inputs[Entrada de conversión de datos]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\MM_Time\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\MM_Time\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\MM_Time\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\MM_Time\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6943,23 +6817,24 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                   name="Entrada de destino de ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Copia de Year]"
+                      refId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Year]"
                       cachedDataType="i2"
-                      cachedName="Copia de Year"
+                      cachedName="Year"
+                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Year]"
-                      lineageId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Year]" />
+                      lineageId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Year]" />
                     <inputColumn
-                      refId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Copia de Month]"
+                      refId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Month]"
                       cachedDataType="ui1"
-                      cachedName="Copia de Month"
+                      cachedName="Month"
                       externalMetadataColumnId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Month]"
-                      lineageId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Month]" />
+                      lineageId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Month]" />
                     <inputColumn
-                      refId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Copia de Day]"
+                      refId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Day]"
                       cachedDataType="ui1"
-                      cachedName="Copia de Day"
+                      cachedName="Day"
                       externalMetadataColumnId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Day]"
-                      lineageId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Day]" />
+                      lineageId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Day]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7100,7 +6975,7 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\MM_Time\Ordenar 1.Inputs[Entrada de ordenación].Columns[Year]"
-                      cachedDataType="i4"
+                      cachedDataType="i2"
                       cachedName="Year"
                       lineageId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada].Columns[Year]">
                       <properties>
@@ -7116,7 +6991,7 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                     </inputColumn>
                     <inputColumn
                       refId="Package\MM_Time\Ordenar 1.Inputs[Entrada de ordenación].Columns[Month]"
-                      cachedDataType="i4"
+                      cachedDataType="ui1"
                       cachedName="Month"
                       lineageId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada].Columns[Month]">
                       <properties>
@@ -7132,7 +7007,7 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                     </inputColumn>
                     <inputColumn
                       refId="Package\MM_Time\Ordenar 1.Inputs[Entrada de ordenación].Columns[Day]"
-                      cachedDataType="i4"
+                      cachedDataType="ui1"
                       cachedName="Day"
                       lineageId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada].Columns[Day]">
                       <properties>
@@ -7158,7 +7033,7 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Year]"
-                      dataType="i4"
+                      dataType="i2"
                       lineageId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Year]"
                       name="Year"
                       sortKeyPosition="1">
@@ -7172,7 +7047,7 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                     </outputColumn>
                     <outputColumn
                       refId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Month]"
-                      dataType="i4"
+                      dataType="ui1"
                       lineageId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Month]"
                       name="Month">
                       <properties>
@@ -7185,7 +7060,7 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
                     </outputColumn>
                     <outputColumn
                       refId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Day]"
-                      dataType="i4"
+                      dataType="ui1"
                       lineageId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación].Columns[Day]"
                       name="Day">
                       <properties>
@@ -7521,18 +7396,13 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
               name="Salida de columna derivada"
               startId="Package\MM_Time\Columna derivada.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\MM_Time.Paths[Salida de conversión de datos]"
-              endId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
-              name="Salida de conversión de datos"
-              startId="Package\MM_Time\Conversión de datos.Outputs[Salida de conversión de datos]" />
-            <path
               refId="Package\MM_Time.Paths[Salida de ordenación]"
               endId="Package\MM_Time\Columna derivada.Inputs[Entrada de columna derivada]"
               name="Salida de ordenación"
               startId="Package\MM_Time\Ordenar.Outputs[Salida de ordenación]" />
             <path
               refId="Package\MM_Time.Paths[Salida de ordenación1]"
-              endId="Package\MM_Time\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              endId="Package\MM_Time\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
               name="Salida de ordenación"
               startId="Package\MM_Time\Ordenar 1.Outputs[Salida de ordenación]" />
             <path
@@ -8533,7 +8403,7 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
         <NodeLayout
           Size="124.8,41.6"
           Id="Package\MM_Time\Ordenar 1"
-          TopLeft="355,318" />
+          TopLeft="355,317.133333326446" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\MM_Time\Columna derivada"
@@ -8545,33 +8415,7 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\MM_Time\Destino de ADO NET"
-          TopLeft="326,495" />
-        <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\MM_Time\Conversión de datos"
-          TopLeft="326,386" />
-        <EdgeLayout
-          Id="Package\MM_Time.Paths[Salida de ordenación1]"
-          TopLeft="415.1,359.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.4000000000001"
-              Start="0,0"
-              End="0,18.9000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.9000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="330.999999801318,413.533332685894" />
         <EdgeLayout
           Id="Package\MM_Time.Paths[Salida de ordenación]"
           TopLeft="416.8,184.6">
@@ -8595,41 +8439,19 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MM_Time.Paths[Salida de conversión de datos]"
-          TopLeft="413.6,427.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,67.3999999999998"
-              Start="0,0"
-              End="0,59.8999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59.8999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\MM_Time.Paths[Salida de columna derivada]"
           TopLeft="416.8,271.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.4"
+              EndConnector="0,45.5333333264455"
               Start="0,0"
-              End="0,38.9">
+              End="0,38.0333333264455">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.9" />
+                    End="0,38.0333333264455" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8660,11 +8482,41 @@ INNER JOIN Products P ON P.Id_Product = OD.Product_Id</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MM_Time.Paths[Salida de ordenación1]"
+          TopLeft="418.399999900659,358.733333326446">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.7999993594489"
+              Start="0,0"
+              End="0,47.2999993594489">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.2999993594489" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\MM_Time\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\MM_Time\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
